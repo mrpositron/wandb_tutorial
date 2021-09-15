@@ -9,12 +9,12 @@ Machine learning experiment tracking, dataset versioning, and model evaluation.
 
 ## 1. Setting up
 
-1. Create an account on [wandb.ai](wandb.ai).
+1. Create an account on [wandb.ai](https://wandb.ai).
 2. Install wandb.
 ```
 pip install wandb
 ```
-3. Link your machine with your account.  When logging in you should enter your private API key from [wandb.ai](wandb.ai/authorize).
+3. Link your machine with your account.  When logging in you should enter your private API key from [wandb.ai](https://wandb.ai/authorize).
 ```
 wandb login
 ```
