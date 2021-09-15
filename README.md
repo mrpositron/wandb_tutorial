@@ -28,7 +28,6 @@ wandb.init(project="my-funny-project")
 
 `wandb.init(·)` starts the tracking system metrics and console logs.
 
-In this tutorial, wandb is initialised in `main.py` file.
 
 ## 3. Start to track metrics
 
@@ -46,8 +45,6 @@ For example, if you had two losses, training and validation losses. You can spli
 wandb.log({'train/loss': train_loss, 'val/loss': val_loss})
 ```
 
-In this tutorial, you can see `wandb.log(·)` uses in `main.py` to track metrics over entire data, and in `utils.py` to track metrics over batches.
-
 
 ## 4. Track hyperparameters
 When using `argparse`, you can use the command below and easily track hyperparameters you have used.
@@ -60,6 +57,4 @@ There are also other ways to save configuration values. For example, you can sav
 ## 5. Track your weights and gradients
 
 Add `wandb.watch(log = 'all)` to track gradients and parameters weights.
-
-In this tutorial `wandb.watch(·)` comes right after initialisation of W&B.
 

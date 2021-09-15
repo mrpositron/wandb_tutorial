@@ -26,10 +26,11 @@ if __name__ == "__main__":
     parser.add_argument('--wb', type = bool, default = False)
 
     args = parser.parse_args()
-    ## START A W&B RUN ##
+    
+    ###### 1. START W&B RUN ######
     if args.wb:
         wandb.init(project = "mnist_wandb_tutorial")
-
+    ###########################
     device = torch.device("cuda:8")
 
     torch.manual_seed(args.seed)
@@ -65,5 +66,14 @@ if __name__ == "__main__":
 
         print(f"Epoch: {epoch}/{args.epochs + 1} || Training Loss: {train_cum_loss} || Testing Loss: {test_cum_loss} || Testing accuracy: {test_acc}")
 
-    # if args.save_model:
-    #     torch.save(model.state_dict(), "mnist_cnn.pt")
+        if args.wb:
+            ###### 2.1. TRACK METRICS ######
+            wandb.log(
+                {
+                    'batch/epoch' : epoch,
+                    'batch/train_loss': train_cum_loss,
+                    'batch/test_loss': test_cum_loss,
+                    'batch/test_accuracy':  test_acc,
+                }
+            )
+            ###########################

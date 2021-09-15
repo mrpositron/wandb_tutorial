@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 
+import wandb
 
 def train(args, model, device, train_loader, optimizer, epoch):
     model.train()
@@ -14,12 +15,17 @@ def train(args, model, device, train_loader, optimizer, epoch):
         loss = F.nll_loss(output, target)
         loss.backward()
         optimizer.step()
-        # if batch_idx % 1 == 0:
-        #     print('Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}'.format(
-        #         epoch, batch_idx * len(data), len(train_loader.dataset),
-        #         100. * batch_idx / len(train_loader), loss.item()))
+
+
+        if args.wb:
+            wandb.log(
+                {
+                    'iter/train_loss': loss.item(), 
+                }
+            )
+
         cum_loss += loss.item()
-    return cum_loss
+    return cum_loss/len(train_loader)
 
 @torch.no_grad()
 def test(args, model, device, test_loader):
@@ -37,8 +43,5 @@ def test(args, model, device, test_loader):
     test_loss /= len(test_loader.dataset)
     correct = 100. * correct / len(test_loader.dataset)
 
-    # print('\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
-    #     test_loss, correct, len(test_loader.dataset),
-    #     100. * correct / len(test_loader.dataset)))
 
     return test_loss, correct
