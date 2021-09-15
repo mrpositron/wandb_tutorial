@@ -1,6 +1,6 @@
 # W&B Tutorial
 
-This is a gentle guide on how to start using an awesome library called **Weights and Biases**. This tutorial is also accompanied with a PyTorch source code, and plots and metrics can be found in this link:
+This is a gentle introductin on how to start using an awesome library called **Weights and Biases**. This tutorial is also accompanied with a PyTorch source code, and plots and metrics can be found in this link:
 
 ## 0. About W&B
 
@@ -9,12 +9,12 @@ Machine learning experiment tracking, dataset versioning, and model evaluation.
 
 ## 1. Setting up
 
-1. Create an account on wandb.ai.
+1. Create an account on [wandb.ai](wandb.ai).
 2. Install wandb.
 ```
 pip install wandb
 ```
-3. Link your machine with your account.  When logging in you should enter your private API key from wandb.ai/authorize.
+3. Link your machine with your account.  When logging in you should enter your private API key from [wandb.ai](wandb.ai/authorize).
 ```
 wandb login
 ```
@@ -51,7 +51,7 @@ When using `argparse`, you can use the command below and easily track hyperparam
 ```
 wandb.config.update(args) # adds all of the arguments as config variables
 ```
-There are also other ways to save configuration values. For example, you can save configurationsa as a dictionary and pass it. Check more details: https://docs.wandb.ai/guides/track/config.
+There are also other ways to save configuration values. For example, you can save configurationsa as a dictionary and pass it. Check more details [here](https://docs.wandb.ai/guides/track/config).
 
 
 ## 5. Track your weights and gradients
