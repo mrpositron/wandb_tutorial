@@ -27,9 +27,10 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     
-    ###### 1. START W&B RUN ######
+    ###### Start W&B run and save hyperparameters ######
     if args.wb:
         wandb.init(project = "mnist_wandb_tutorial")
+        wandb.config.update(args)
     ###########################
     device = torch.device("cuda:8")
 
@@ -58,6 +59,12 @@ if __name__ == "__main__":
     test_loader = torch.utils.data.DataLoader(dataset2, **test_kwargs)
 
     model = Net().to(device)
+
+    ######  Track weights and gradients ######
+    if args.wb:
+        wandb.watch(model, log = 'all', log_freq = 10 )
+    ###########################
+
     optimizer = optim.Adadelta(model.parameters(), lr=args.lr)
 
     for epoch in range(1, args.epochs + 1):
@@ -67,7 +74,7 @@ if __name__ == "__main__":
         print(f"Epoch: {epoch}/{args.epochs + 1} || Training Loss: {train_cum_loss} || Testing Loss: {test_cum_loss} || Testing accuracy: {test_acc}")
 
         if args.wb:
-            ###### 2.1. TRACK METRICS ######
+            ###### Track metrics ######
             wandb.log(
                 {
                     'batch/epoch' : epoch,

@@ -56,5 +56,5 @@ There are also other ways to save configuration values. For example, you can sav
 
 ## 5. Track your weights and gradients
 
-Add `wandb.watch(log = 'all)` to track gradients and parameters weights.
+Add `wandb.watch(model, log = 'all' )` to track gradients and parameters weights.
 
