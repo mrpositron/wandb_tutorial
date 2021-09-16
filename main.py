@@ -17,7 +17,7 @@ if __name__ == "__main__":
                         help='input batch size for training (default: 64)')
     parser.add_argument('--epochs', type=int, default=14, metavar='N',
                         help='number of epochs to train (default: 14)')
-    parser.add_argument('--lr', type=float, default=1.0, metavar='LR',
+    parser.add_argument('--lr', type=float, default=0.001, metavar='LR',
                         help='learning rate (default: 1.0)')
     parser.add_argument('--seed', type=int, default=1, metavar='S',
                         help='random seed (default: 1)')
@@ -31,7 +31,7 @@ if __name__ == "__main__":
     
     ###### Start W&B run and save hyperparameters ######
     if args.wb:
-        wandb.init(project = "mnist_wandb_tutorial")
+        wandb.init(project = "wandb_tutorial")
         wandb.config.update(args)
     ###########################
     device = torch.device("cuda:8")
@@ -74,7 +74,7 @@ if __name__ == "__main__":
         wandb.watch(model, log = 'all', log_freq = 10 )
     ###########################
 
-    optimizer = optim.Adadelta(model.parameters(), lr=args.lr)
+    optimizer = optim.Adam(model.parameters(), lr=args.lr)
 
     for epoch in range(1, args.epochs + 1):
         train_cum_loss = train(args, model, device, train_loader, optimizer, epoch)
