@@ -13,7 +13,7 @@ import wandb
 if __name__ == "__main__":
     # Training settings
     parser = argparse.ArgumentParser(description='PyTorch MNIST Example')
-    parser.add_argument('--batch-size', type=int, default=64, metavar='N',
+    parser.add_argument('--batch_size', type=int, default=64, metavar='N',
                         help='input batch size for training (default: 64)')
     parser.add_argument('--epochs', type=int, default=14, metavar='N',
                         help='number of epochs to train (default: 14)')
@@ -21,9 +21,11 @@ if __name__ == "__main__":
                         help='learning rate (default: 1.0)')
     parser.add_argument('--seed', type=int, default=1, metavar='S',
                         help='random seed (default: 1)')
+    parser.add_argument('--num_layers', type=int, default = 3)
+    parser.add_argument('--dropout', type = float, default = 0.1)
 
 
-    parser.add_argument('--wb', type = bool, default = False)
+    parser.add_argument('--wb', type = bool, default = True)
 
     args = parser.parse_args()
     
@@ -58,7 +60,14 @@ if __name__ == "__main__":
     train_loader = torch.utils.data.DataLoader(dataset1,**train_kwargs)
     test_loader = torch.utils.data.DataLoader(dataset2, **test_kwargs)
 
-    model = Net().to(device)
+    if args.num_layers == 1:
+        layers_dims = [784, 10]
+    elif args.num_layers == 2:
+        layers_dims = [784, 250, 10]
+    elif args.num_layers == 3:
+        layers_dims = [784, 250, 100, 10]
+
+    model = Net(layers_dims, args.dropout).to(device)
 
     ######  Track weights and gradients ######
     if args.wb:
@@ -84,3 +93,5 @@ if __name__ == "__main__":
                 }
             )
             ###########################
+
+        
