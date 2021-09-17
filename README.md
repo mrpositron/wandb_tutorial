@@ -1,4 +1,4 @@
-# 🔥 W&B Minimal PyTorch Tutorial
+# 🪄 W&B Minimal PyTorch Tutorial
 
 This is a gentle introductin on how to start using an awesome library called **Weights and Biases**. This tutorial is also accompanied with a PyTorch source code, and plots and metrics can be found in [this link](https://wandb.ai/mrpositron/wandb_tutorial).
 
@@ -98,5 +98,5 @@ wandb sweep sweep.yaml
 ```
 wandb agent your-sweep-id
 ```
-W&B will present some cool visualisation like this:
+W&B will present some cool visualisations like this:
 ![Sweep Example](https://github.com/MrPositron/wandb_tutorial/blob/main/images/sweep_example.png)
