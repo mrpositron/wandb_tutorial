@@ -1,4 +1,4 @@
-# 🔥 W&B Tutorial
+# 🔥 W&B Minimal Tutorial
 
 This is a gentle introductin on how to start using an awesome library called **Weights and Biases**. This tutorial is also accompanied with a PyTorch source code, and plots and metrics can be found in [this link](https://wandb.ai/mrpositron/wandb_tutorial).
 
