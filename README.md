@@ -1,7 +1,5 @@
 # 🪄 W&B Minimal PyTorch Tutorial
 
-This is a gentle introductin on how to start using an awesome library called **Weights and Biases**. 
-
 This tutorial is also accompanied with a PyTorch source code, it can be found in `src` folder. Furthermore, all plots and metrics that I mentioned here can be found here in [this link](https://wandb.ai/mrpositron/wandb_tutorial).
 
 You can also run the code with wandb. First you shoule go to a `src` directory, and run the following command:
