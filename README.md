@@ -10,7 +10,7 @@ python main.py
 
 ## 0. About W&B.
 
-Machine learning experiment tracking, dataset versioning, and model evaluation.
+Machine learning *experiment tracking*, *dataset versioning*, and *model evaluation*.
 
 
 ## 1. Setting up.
