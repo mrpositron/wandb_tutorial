@@ -54,9 +54,17 @@ wandb.config.update(args) # adds all of the arguments as config variables
 There are also other ways to save configuration values. For example, you can save configurationsa as a dictionary and pass it. Check more details [here](https://docs.wandb.ai/guides/track/config).
 
 
-## 5. Track your weights and gradients.
+## 5. Track and visualise your weights and gradients.
 
 Add `wandb.watch(model, log = 'all' )` to track gradients and parameters weights.
+
+Visualisation of weights:
+
+![Weights Visualisation](https://github.com/MrPositron/wandb_tutorial/blob/main/images/parameters_example.png)
+
+Visualisation of gradients:
+
+![Gradients Visualisation](https://github.com/MrPositron/wandb_tutorial/blob/main/images/gradients_example.png)
 
 ## 6. Tune hyperparameters.
 
@@ -91,4 +99,4 @@ wandb sweep sweep.yaml
 wandb agent your-sweep-id
 ```
 W&B will present some cool visualisation like this:
-![alt text](https://github.com/MrPositron/wandb_tutorial/blob/main/images/sweep_example.png)
+![Sweep Example](https://github.com/MrPositron/wandb_tutorial/blob/main/images/sweep_example.png)
