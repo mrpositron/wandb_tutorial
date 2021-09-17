@@ -90,3 +90,5 @@ wandb sweep sweep.yaml
 ```
 wandb agent your-sweep-id
 ```
+W&B will present some cool visualisation like this:
+![alt text](https://github.com/MrPositron/wandb_tutorial/blob/main/images/sweep_example.png)
