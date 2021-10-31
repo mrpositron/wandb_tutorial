@@ -37,7 +37,7 @@ wandb.init(project="my-funny-project")
 
 ## 3. Start to track metrics.
 
-Different metrics like loss, accuracy can be easily done with `wandb.log()` comamnd. For example,
+Different metrics like loss, accuracy can be easily done with `wandb.log()` command. For example,
 
 ```
 wandb.log({'accuracy': train_acc, 'loss': train_loss})
